@@ -42,6 +42,8 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         // runtime 'mysql:mysql-connector-java:5.1.22'
+        // Grails 2.2 uses Groovy 2.0, which requires a special Spock version. So to use the Spock plugin with Grails 2.2,
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
@@ -59,5 +61,11 @@ grails.project.dependency.resolution = {
         runtime ":database-migration:1.3.2"
 
         compile ':cache:1.0.1'
+        // Grails 2.2 uses Groovy 2.0, which requires a special Spock version. So to use the Spock plugin with Grails 2.2,
+        test(':spock:0.7') {
+            exclude 'spock-grails-support'
+        }
+        compile(':fixtures:1.2')
+        complie(':build-test-data:2.0.5')
     }
 }
