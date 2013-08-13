@@ -14,16 +14,16 @@ class UserListSpec extends IntegrationSpec {
     void setupSpec() {
         fixture = fixtureLoader.load {
             build {
-                user1(User, email: 'user1@example.com')
-                user2(User, email: 'user2@example.com')
-                user3(User, email: 'user3@example.com')
+                user1(User)
+                user2(User)
+                user3(User)
             }
         }
     }
 
     void 'max'() {
         when:
-        def users = User.list([max: 1])
+        def users = User.list([max: 1, sort: 'email'])
         then:
         users.size() == 1
         users.totalCount == 3

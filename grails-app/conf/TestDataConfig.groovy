@@ -1,6 +1,9 @@
 testDataConfig {
     sampleData {
-
+        'grails.fixtures.demo.User' {
+            def i = 1
+            email = {-> "user${i++}@example.com" }   // creates "title1", "title2", ...."titleN"
+        }
     }
 }
 
