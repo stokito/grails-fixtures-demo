@@ -66,6 +66,6 @@ grails.project.dependency.resolution = {
             exclude 'spock-grails-support'
         }
         compile(':fixtures:1.2')
-        complie(':build-test-data:2.0.5')
+        compile(':build-test-data:2.0.5')
     }
 }
